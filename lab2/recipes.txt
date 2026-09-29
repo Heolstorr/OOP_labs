@@ -1,0 +1,66 @@
+High-Protein Chicken Bowl
+3
+Chicken Breast (kg)
+0.35
+180
+Eggs (pcs)
+3
+6.5
+White Rice (kg)
+0.1
+60
+High-Protein Chicken Bowl
+3
+Chicken Breast (kg)
+0.35
+180
+Eggs (pcs)
+3
+6.5
+White Rice (kg)
+0.1
+60
+High-Protein Chicken Bowl
+3
+Chicken Breast (kg)
+0.35
+180
+Eggs (pcs)
+3
+6.5
+White Rice (kg)
+0.1
+60
+High-Protein Chicken Bowl
+3
+Chicken Breast (kg)
+0.35
+180
+Eggs (pcs)
+3
+6.5
+White Rice (kg)
+0.1
+60
+Chicken Bowl
+3
+Chicken Breast (kg)
+0.35
+180
+Eggs (pcs)
+3
+6.5
+White Rice (kg)
+0.1
+60
+Chicken Bowl
+3
+Chicken Breast (kg)
+0.35
+180
+Eggs (pcs)
+3
+6.5
+White Rice (kg)
+0.1
+60
