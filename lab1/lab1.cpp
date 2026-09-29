@@ -1,5 +1,8 @@
 #include <iostream>
+#include <iomanip>
 #include <cmath>
+
+using namespace std;
 
 class ZavdClass {
 private:
@@ -11,16 +14,16 @@ public:
     }
 
     void Fn_b(double x, double y, double z) {
-        double part1 = std::pow(std::abs(x), 0.3) / (z + y);
-        double part2 = std::pow(std::tan((x + std::pow(z, 2)) / (2.0 * x - 1.4)), 2);
-        double term = std::pow(std::abs(part1 + part2), 1.0 / 3.0);
-        b = y * term - z * std::exp(x * x - y);
+        double part1 = pow(abs(x), 0.3) / (z + y);
+        double part2 = pow(tan((x + pow(z, 2)) / (2.0 * x - 1.4)), 2);
+        double term = pow(abs(part1 + part2), 1.0 / 3.0);
+        b = y * term - z * exp(x * x - y);
     }
 
     void Fn_a(double x, double y, double z) {
-        double num = 3.0 + std::exp(y - x) + std::sqrt(std::pow(std::abs(y * y + b), 0.3));
-        double den = 1.0 + x * x * std::abs(y - std::pow(std::tan(z * z), 2));
-        a = std::pow(std::abs(z), 0.2) * (num / den);
+        double num = 3.0 + exp(y - x) + sqrt(pow(abs(y * y + b), 0.3));
+        double den = 1.0 + x * x * abs(y - pow(tan(z * z), 2));
+        a = pow(abs(z), 0.2) * (num / den);
     }
 
     double geta() { return a; }
@@ -29,22 +32,46 @@ public:
 
 int main() {
     int variant = 9;
-    double x = 0.48 * variant;
+    
     double y = 0.47 * variant;
     double z = -1.32 * variant;
-
+    
     ZavdClass solver;
-    solver.Fn_b(x, y, z);
-    solver.Fn_a(x, y, z);
 
-    std::cout << "Input parameters:\n";
-    std::cout << "x = " << x << "\n";
-    std::cout << "y = " << y << "\n";
-    std::cout << "z = " << z << "\n\n";
+    // Single Calculation
+    double x_single = 0.48 * variant;
+    
+    solver.Fn_b(x_single, y, z);
+    solver.Fn_a(x_single, y, z);
 
-    std::cout << "Calculation results:\n";
-    std::cout << "b = " << solver.getb() << "\n";
-    std::cout << "a = " << solver.geta() << "\n";
+    cout << "Single Calculation\n";
+    cout << "Input parameters:\n";
+    cout << "x = " << x_single << "\n";
+    cout << "y = " << y << "\n";
+    cout << "z = " << z << "\n\n";
+
+    cout << "Calculation results:\n";
+    cout << "b = " << solver.getb() << "\n";
+    cout << "a = " << solver.geta() << "\n\n";
+
+
+    //Tabulation
+    cout << "Tabulation of functions a and b \n";
+    cout << "y = " << y << ", z = " << z << "\n\n";
+    
+    cout << fixed << setprecision(5);
+    cout << setw(10) << "x" << " | " 
+         << setw(15) << "b" << " | " 
+         << setw(15) << "a" << "\n";
+    
+    for (double x = -1.0; x <= 1.001; x += 0.2) {
+        solver.Fn_b(x, y, z);
+        solver.Fn_a(x, y, z);
+        
+        cout << setw(10) << x << " | " 
+             << setw(15) << solver.getb() << " | " 
+             << setw(15) << solver.geta() << "\n";
+    }
 
     return 0;
 }
