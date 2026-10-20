@@ -63,7 +63,7 @@ int main() {
     cout << setw(10) << "x" << " | " 
          << setw(15) << "b" << " | " 
          << setw(15) << "a" << "\n";
-    
+     
     for (double x = -1.0; x <= 1.001; x += 0.2) {
         solver.Fn_b(x, y, z);
         solver.Fn_a(x, y, z);
